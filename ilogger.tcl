@@ -3,7 +3,10 @@
 
 # ---------------------- Command line parsing -------------------------
 package require cmdline
-set usage "usage: ilogger \[options]"
+set usage "usage: ilogger \[options]\n\n"
+append usage "While the DM3058 can sample at 123 readings per second, it can only update\n"
+append usage "its remote interface at 50 readings per second.\n"
+
 set options {
     {p.arg none "Port (like /dev/usbtmc1)"}
     {r.arg slow "Readings per second: slow (2.5), medium (20), fast (123)"}
