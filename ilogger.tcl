@@ -169,6 +169,10 @@ set measurement_range [range_set $portchan]
 
 # Initialize the datafile
 if { ![string equal $params(o) "none"] } {
+    if { [file exists $params(o)] } {
+	puts "Cowardly refusing to overwrite $params(o)"
+	exit 1
+    }
     try {
 	set fp [open $params(o) w]
 	puts $fp "# Timestamp,millisecond counter (ms),current (A)"
